@@ -1,0 +1,485 @@
+﻿<Window x:Class="EWB.WindowRegistration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EWB"
+        mc:Ignorable="d"
+        Height="850"
+        Width="1400"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="windowMouseDown">
+    <Grid x:Name="mainGrid">
+
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                             Duration="0:0:0.1"
+                                             From="0"
+                                             To="1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+        <Border CornerRadius="20 20 20 20" 
+                BorderThickness="6">
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="1,1">
+                    <GradientStop Color="#462ad8"
+                                  Offset="0.0"/>
+                    <GradientStop Color="#DA34ae"
+                                  Offset="0.7"/>
+                    <GradientStop Color="#8a16c1"
+                                  Offset="0.9"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="0,1">
+                    <GradientStop Color= "#124"
+                                  Offset="0.0"/>
+                    <GradientStop Color="#404add"
+                                  Offset="1.4"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid x:Name="authGrid"
+              Opacity="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="15"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Администратор | Электронная трудовая книжка"
+                           Grid.Column="0"
+                           Foreground="#c4c4c4"
+                           FontFamily="Helvetica Regular 400"
+                           FontSize="16"
+                           VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                           Margin="20 20 0 25"/>
+                    <Button Template="{DynamicResource ButtonTemplate3}" 
+                            x:Name="btnMinimize"
+                            Grid.Column="1"
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontFamily="Helvetica Regular 400"
+                            FontSize="30"
+                            Cursor="Hand"
+                            Click="btnMinimize_Click"/>
+
+                    <Button Template="{DynamicResource ButtonTemplate2}" 
+                            x:Name="btnClose"
+                            Grid.Column="2"
+                            BorderThickness="0"
+                            Content="x"
+                            Foreground="White"
+                            FontFamily="Helvetica Regular 400"
+                            FontSize="20"
+                            Cursor="Hand"
+                            Click="btnClose_Click"/>
+
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="510"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Height="770"
+                                Width="550"
+                                Grid.Column="0">
+                        <TextBlock Text="ID пользователя:"
+                                   FontFamily="Helvetica Regular 400"
+                                   FontSize="20"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   Margin="36 20 0 0"
+                                   TextWrapping="Wrap"
+                                   Height="30"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"/>
+                        <TextBox Width="430"
+                                 FontFamily="Helvetica Regular 400"
+                                   FontSize="22"
+                                 Foreground="White"
+                             CaretBrush="White"
+                             BorderBrush="White"
+                                 IsReadOnly="True"
+                             BorderThickness="0 0 0 1"
+                                 Background="Transparent"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap"
+                                 HorizontalAlignment="Left"
+                                 Margin="35 0 0 0"
+                                 x:Name="userID"/>
+
+                        <TextBlock Text="Логин:"
+                           FontFamily="Helvetica Regular 400"
+                           FontSize="20"
+                           Foreground="White"
+                           FontWeight="SemiBold"
+                           TextAlignment="Center"
+                           Margin="35 20 0 0"
+                           TextWrapping="Wrap"
+                           Height="30"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"/>
+                        <TextBox Width="430"
+                                 FontFamily="Helvetica Regular 400"
+                                   FontSize="22"
+                                 Foreground="White"
+                             CaretBrush="White"
+                             BorderBrush="White"
+                             BorderThickness="0 0 0 1"
+                                 Background="Transparent"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap"
+                                 HorizontalAlignment="Left"
+                                 Margin="35 0 0 0"
+                         x:Name="userLogin"/>
+
+                        <TextBlock FontFamily="Helvetica Regular 400"
+                                   FontSize="20"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Left"
+                                   Margin="35 20 0 0"
+                                   TextWrapping="Wrap"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left">
+                            <TextBlock>
+                                Пароль
+                            </TextBlock>
+                        </TextBlock>
+                        <TextBox Width="430"
+                                 FontFamily="Helvetica Regular 400"
+                                   FontSize="22"
+                                 Foreground="White"
+                             CaretBrush="White"
+                             BorderBrush="White"
+                             BorderThickness="0 0 0 1"
+                                 Background="Transparent"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap"
+                                 HorizontalAlignment="Left"
+                                 Margin="35 0 0 0"
+                                 x:Name="firstName"/>
+
+                        <TextBlock Text="Фамилия:"
+                                   FontFamily="Helvetica Regular 400"
+                                   FontSize="20"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   Margin="35 20 0 0"
+                                   TextWrapping="Wrap"
+                                   Height="30"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"/>
+                        <TextBox Width="430"
+                                 FontFamily="Helvetica Regular 400"
+                                   FontSize="22"
+                                 Foreground="White"
+                             CaretBrush="White"
+                             BorderBrush="White"
+                             BorderThickness="0 0 0 1"
+                                 Background="Transparent"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap"
+                                 HorizontalAlignment="Left"
+                                 Margin="35 0 0 0"
+                                 x:Name="userPassword"/>
+                        <TextBlock Text="Имя:"
+                                   FontFamily="Helvetica Regular 400"
+                                   FontSize="20"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   Margin="35 20 0 0"
+                                   TextWrapping="Wrap"
+                                   Height="30"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"/>
+                        <TextBox Width="430"
+                                 FontFamily="Helvetica Regular 400"
+                                   FontSize="22"
+                                 Foreground="White"
+                             CaretBrush="White"
+                             BorderBrush="White"
+                             BorderThickness="0 0 0 1"
+                                 Background="Transparent"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap"
+                                 HorizontalAlignment="Left"
+                                 Margin="35 0 0 0"
+                                 x:Name="userName"/>
+                        <TextBlock Text="Отчество:"
+                                   FontFamily="Helvetica Regular 400"
+                                   FontSize="20"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   Margin="35 20 0 0"
+                                   TextWrapping="Wrap"
+                                   Height="30"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"/>
+                        <TextBox Width="430"
+                                 FontFamily="Helvetica Regular 400"
+                                   FontSize="22"
+                                 Foreground="White"
+                             CaretBrush="White"
+                             BorderBrush="White"
+                             BorderThickness="0 0 0 1"
+                                 Background="Transparent"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap"
+                                 HorizontalAlignment="Left"
+                                 Margin="35 0 0 0"
+                                 x:Name="lastName"/>
+                        <TextBlock Text="Должность:"
+                                   FontFamily="Helvetica Regular 400"
+                                   FontSize="20"
+                                   Foreground="White"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   Margin="35 20 0 0"
+                                   TextWrapping="Wrap"
+                                   Height="30"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"/>
+                        <TextBox Width="430"
+                                 FontFamily="Helvetica Regular 400"
+                                   FontSize="22"
+                                 Foreground="White"
+                             CaretBrush="White"
+                             BorderBrush="White"
+                             BorderThickness="0 0 0 1"
+                                 Background="Transparent"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Left"
+                                   TextWrapping="Wrap"
+                                 HorizontalAlignment="Left"
+                                 Margin="35 0 0 0"
+                                 x:Name="userPosition"/>
+                        <Grid Width="500"
+                              HorizontalAlignment="Left"
+                              Margin="0 50 0 0">
+                            <Button x:Name="btnPlus"
+                                    Foreground="White"
+                                    FontFamily="Helvetica Regular 400"
+                                    FontSize="24"
+                                    Cursor="Hand"
+                                    Margin="30 0 0 0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Click="btnPlus_Click">
+                                <Button.Content>
+                                    <TextBlock TextAlignment="Center">
+                                        Добавить
+                                        <LineBreak/>
+                                        данные
+                                    </TextBlock>
+                                </Button.Content>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="#462ad8"
+                                                BorderBrush="#2f1b94"
+                                                BorderThickness="2"
+                                                CornerRadius="20"
+                                                Height="70"
+                                                Width="200">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                            <Button x:Name="btnChancge"
+                            Foreground="White"
+                            FontFamily="Helvetica Regular 400"
+                            FontSize="24"
+                            Cursor="Hand"
+                            Margin="0 0 30 0"
+                            HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                            Click="btnChange_Click">
+                                <Button.Content>
+                                    <TextBlock TextAlignment="Center">
+                            Изменить
+                            <LineBreak/>
+                            данные
+                                    </TextBlock>
+                                </Button.Content>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="#462ad8"
+                                    BorderBrush="#2f1b94"
+                                    BorderThickness="2"
+                                    CornerRadius="20"
+                                    Height="70"
+                                    Width="200">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                        <Grid Width="500"
+                              HorizontalAlignment="Left">
+                            <Button x:Name="btnDelete"
+                                Foreground="White"
+                                FontFamily="Helvetica Regular 400"
+                                FontSize="24"
+                                Cursor="Hand"
+                                Margin="60 20 60 0"
+                                HorizontalAlignment="Center" 
+                                Click="btnDelete_Click">
+                                <Button.Content>
+                                    <TextBlock TextAlignment="Center">
+                                    Удалить
+                                    <LineBreak/>
+                                    данные
+                                    </TextBlock>
+                                </Button.Content>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="#462ad8"
+                                            BorderBrush="#2f1b94"
+                                            BorderThickness="2"
+                                            CornerRadius="20"
+                                            Height="70"
+                                            Width="200">
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
+                            
+                        </Grid>
+                    </StackPanel>
+                    <Grid Grid.Column="1">
+
+                        <Grid Margin="0 20 0 0"
+                              Height="600"
+                              Width="800"
+                              x:Name="gridAdmin"
+                              VerticalAlignment="Top">
+                            <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                                  RowStyle="{DynamicResource DataGridRowStyle1}"
+                                  IsReadOnly="True"
+                                  AutoGenerateColumns="False"
+                                  GridLinesVisibility="None"
+                                  x:Name="ConvertAdminDataGrid"
+                                  FontSize="22"
+                                      SelectionChanged="ConvertAdminDataGrid_SelectionChanged">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="№"
+                                                    Binding="{Binding Path=IDuser}"/>
+                                    <DataGridTextColumn Header="Логин"
+                                                    Binding="{Binding Path=Login}"/>
+                                    <DataGridTextColumn Header="Пароль"
+                                                    Binding="{Binding Path=Password}"/>
+                                    <DataGridTextColumn Header="Фамилия"
+                                                    Binding="{Binding Path=FirstName}"/>
+                                    <DataGridTextColumn Header="Имя"
+                                                    Binding="{Binding Path=Name}"/>
+                                    <DataGridTextColumn Header="Отчество"
+                                                    Binding="{Binding Path=LastName}"/>
+                                    <DataGridTextColumn Header="Должность"
+                                                    Binding="{Binding Path=Position}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <TextBlock Text="Поиск:"
+                                   FontFamily="Helvetica Regular 400"
+                                   FontSize="28"
+                                   Foreground="White"                               
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   Margin="80 0 0 50"
+                                   TextWrapping="Wrap"
+                                   Height="40"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Left"/>
+                        <TextBox Width="250"
+                                 BorderThickness="0 0 0 1"
+                                 BorderBrush="White"
+                                 Background="Transparent"
+                                 CaretBrush="White"
+                                 Foreground="White"
+                                 Margin="180 0 0 60"
+                                 FontSize="22"
+                                 FontWeight="SemiBold"
+                                 x:Name="searchText"
+                                 TextChanged="searchText_TextChanged"
+                                 VerticalAlignment="Bottom"
+                                 HorizontalAlignment="Left"/>
+                        <Button x:Name="btnBack"
+                            Foreground="White"
+                            FontFamily="Helvetica Regular 400"
+                            FontSize="24"
+                            Cursor="Hand"
+                            Margin="0 0 45 30"
+                            HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                            Click="btnBack_Click">
+                            <Button.Content>
+                                <TextBlock TextAlignment="Center">
+                                    Вернуться
+                                    <LineBreak/>
+                                    на главную
+                                </TextBlock>
+                            </Button.Content>
+                            <Button.Template>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="#462ad8"
+                                    BorderBrush="#2f1b94"
+                                    BorderThickness="2"
+                                    CornerRadius="20"
+                                    Height="70"
+                                    Width="200">
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
+

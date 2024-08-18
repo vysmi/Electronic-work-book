@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ControlTemplate x:Key="ButtonTemplate1" 
+                     TargetType="{x:Type Button}">
+        <Border Background="#DA34ae"
+                BorderBrush="#971c76"
+                BorderThickness="2"
+                CornerRadius="20"
+                Height="50"
+                Width="200">
+            <ContentPresenter HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonTemplate2"
+                     TargetType="{x:Type Button}">
+        <Border Background="#DA34ae"
+                BorderBrush="#971c76"
+                BorderThickness="2"
+                CornerRadius="20"
+                Height="40"
+                Width="40">
+            <ContentPresenter HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonTemplate3"
+                     TargetType="{x:Type Button}">
+        <Border CornerRadius="20"
+                Height="40"
+                Background="#462ad8"
+                BorderBrush="#2f1b94"
+                BorderThickness="2"
+                Width="40">
+            <ContentPresenter HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ButtonTemplate4"
+                     TargetType="{x:Type Button}">
+        <Border Background="#462ad8"
+                BorderBrush="#2f1b94"
+                BorderThickness="2"
+                CornerRadius="20"
+                Height="80"
+                Width="260">
+            <ContentPresenter HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+        </Border>
+    </ControlTemplate>
+</ResourceDictionary>
