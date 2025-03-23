@@ -1,0 +1,246 @@
+﻿<Window x:Class="EWB.WindowMainPanelAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EWB"
+        mc:Ignorable="d"
+        Height="700"
+        Width="1200"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="windowMouseDown">
+    <Grid x:Name="mainGrid">
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                             Duration="0:0:0.1"
+                                             From="0"
+                                             To="1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+        <Border CornerRadius="20 20 20 20" 
+                BorderThickness="6">
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="1,1">
+                    <GradientStop Color="#462ad8"
+                                  Offset="0.0"/>
+                    <GradientStop Color="#DA34ae"
+                                  Offset="0.7"/>
+                    <GradientStop Color="#8a16c1"
+                                  Offset="0.9"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="0,1">
+                    <GradientStop Color= "#124"
+                                  Offset="0.0"/>
+                    <GradientStop Color="#404add"
+                                  Offset="1.4"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Button Template="{DynamicResource ButtonTemplate3}" 
+                            x:Name="btnMinimize"
+                            Grid.Column="1"
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontFamily="Helvetica Regular 400"
+                            FontSize="30"
+                            Cursor="Hand"
+                            Click="btnMinimize_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0 25 90 0"/>
+        <TextBlock Text="Администратор | Электронная трудовая книжка"
+                           Grid.Column="0"
+                           Foreground="#c4c4c4"
+                           FontFamily="Helvetica Regular 400"
+                           FontSize="16"
+                           VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                           Margin="20 20 0 25"/>
+        <TextBlock Text="Меню функций:"
+                               FontFamily="Helvetica Regular 400"
+                               FontSize="40"
+                               Foreground="White"
+                               FontWeight="SemiBold"
+                               TextAlignment="Center"
+                               Margin="0 80 0 0"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Center"/>
+        <Button Template="{DynamicResource ButtonTemplate2}" 
+                            x:Name="btnClose"
+                            Grid.Column="2"
+                            BorderThickness="0"
+                            Content="x"
+                            Foreground="White"
+                            FontFamily="Helvetica Regular 400"
+                            FontSize="20"
+                            Cursor="Hand"
+                            Click="btnClose_Click"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="25"/>
+        <Button x:Name="btnRegistration"
+                                        Foreground="White"
+                                        FontFamily="Helvetica Regular 400"
+                                        FontSize="30"
+                                        Cursor="Hand"
+                                        Margin="0 0 400 200"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Click="btnRegistration_Click">
+            <Button.Content>
+                <TextBlock TextAlignment="Center">
+                                        Регистрация
+                                        <LineBreak/>
+                                        пользоввателя
+                </TextBlock>
+            </Button.Content>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="#462ad8"
+                                                BorderBrush="#2f1b94"
+                                                BorderThickness="2"
+                                                CornerRadius="20"
+                                                Height="100"
+                                                Width="300">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnWorkInf"
+                                        Foreground="White"
+                                        FontFamily="Helvetica Regular 400"
+                                        FontSize="30"
+                                        Cursor="Hand"
+                                        Margin="400 0 0 200"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Click="btnWorkInf_Click">
+            <Button.Content>
+                <TextBlock TextAlignment="Center">
+                                        Сведения о работе
+                </TextBlock>
+            </Button.Content>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="#462ad8"
+                                                BorderBrush="#2f1b94"
+                                                BorderThickness="2"
+                                                CornerRadius="20"
+                                                Height="100"
+                                                Width="300">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnPersonInf"
+                                        Foreground="White"
+                                        FontFamily="Helvetica Regular 400"
+                                        FontSize="30"
+                                        Cursor="Hand"
+                                        Margin="0 200 400 0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Click="btnPersonInf_Click">
+            <Button.Content>
+                <TextBlock TextAlignment="Center">
+                                        Персональная
+                    <LineBreak/>
+                                        информация
+                                        <LineBreak/>
+                                        пользоввателя
+                </TextBlock>
+            </Button.Content>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="#462ad8"
+                                                BorderBrush="#2f1b94"
+                                                BorderThickness="2"
+                                                CornerRadius="20"
+                                                Height="120"
+                                                Width="300">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
+        <Button x:Name="btnLeave"
+                            Foreground="White"
+                            FontFamily="Helvetica Regular 400"
+                            FontSize="30"
+                            Cursor="Hand"
+                            Margin="0 0 45 30"
+                            HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                            Click="btnLeave_Click">
+            <Button.Content>
+                <TextBlock TextAlignment="Center">
+                                    Выйти
+                </TextBlock>
+            </Button.Content>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="#462ad8"
+                                    BorderBrush="#2f1b94"
+                                    BorderThickness="2"
+                                    CornerRadius="20"
+                                    Height="80"
+                                    Width="200">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnReward"
+                                        Foreground="White"
+                                        FontFamily="Helvetica Regular 400"
+                                        FontSize="30"
+                                        Cursor="Hand"
+                                        Margin="400 200 0 0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Click="btnReward_Click">
+            <Button.Content>
+                <TextBlock TextAlignment="Center">
+                    Сведения 
+                    <LineBreak/>
+                    о награждениях
+                </TextBlock>
+            </Button.Content>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="#462ad8"
+                                                BorderBrush="#2f1b94"
+                                                BorderThickness="2"
+                                                CornerRadius="20"
+                                                Height="100"
+                                                Width="300">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Window>
